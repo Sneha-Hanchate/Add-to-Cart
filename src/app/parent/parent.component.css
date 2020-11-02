@@ -1,0 +1,11 @@
+.card{
+  display: block;
+  display: inline;
+  display: flex;
+  display: inline-flex;
+}
+
+
+input{
+  width: 90%;
+}

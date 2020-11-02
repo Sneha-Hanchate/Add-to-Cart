@@ -1,0 +1,26 @@
+
+<div style="padding-left:25%; padding-right:25%; ">
+<div style="border: 4px dotted black">
+<div style="padding-left:20px">
+<h1 style="color:purple; font-size:50px;text-shadow: 3px 3px black;">Calculator</h1>
+
+<br>
+<input type="number" [(ngModel)] ="a">
+<br><br>
+<input type="number" [(ngModel)] ="b">
+<br><br>
+
+
+<button (click)="add()"> ADD </button>
+<button (click)="sub()"> SUB </button>
+<button (click)="mul()"> MUL </button>
+<button (click)="div()"> DIV </button>
+<button (click)="clr()"> Clear </button>
+
+<br>
+<br>
+
+<h1 style="border:2px solid orange; width: 30%; background-color: yellow; padding-left:10px;" >sum is= {{sum}}</h1>
+</div>
+</div>
+</div>

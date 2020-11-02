@@ -1,0 +1,41 @@
+
+<div class="comtainer" >
+    <div class="row">
+        <div class="col-md-7 col-12">
+        <h1>Product Menu</h1>
+
+
+
+
+            <app-parent (myEvent1)= "onMyEvent1($event)"></app-parent>
+        </div>
+        <div class="col-md-5" style="border:1px solid black; background-color:black;">
+        <h1 style="color:white;">My Cart</h1><br>
+        <h1 style="color:white; border:1px solid yellow; width:70%;">Total amount = {{Total}}</h1><br>
+        <h1 style="color:white; border:1px solid yellow; width:70%;">Total Products = {{TotalP}}</h1><br>
+  <br>
+          <div class="row">
+
+              <div *ngFor="let x of arrCart">
+
+                <div class="col-md-12">
+                  <div class="card" style=" width:100%; border:2px solid blue;padding: 1%;margin:1%;">
+
+                      <div class="card-header" >
+                        <img style="width:100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQc2TelJFZFY4gYoFdkh7tuC1PxyWF7ERibag&usqp=CAU"/>
+                      </div>
+                      <div class="card-body" style="background-color:orange">
+                          <p class="card-title" #name >Name:- {{x.name}}</p>
+                          <h6 #price > Price:- {{x.price}}</h6>
+                          <button (click)="delete(x)">Cancel product</button>
+
+                      </div>
+
+                  </div>
+                </div>
+
+              </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,35 @@
+<div class="container">
+
+  <form (ngSubmit)="onEmpAdd(f)" #f="ngForm">
+    <div class="form-group">
+      <label>email</label>
+      <input type="text"  name="emp_email" ngModel required #emp_email="ngModel" placeholder="Enter email" class="form-control">
+      <label *ngIf="emp_email.hasError('required') && !emp_email.pristine" class="alert alert-denger">required</label>
+      <label *ngIf="emp_email.hasError('email') && !emp_email.pristine">Invalid email address</label>
+    </div>
+    <div class="form-group">
+      <label>name</label>
+      <input type="text"   name="emp_name" ngModel  laceholder="Enter name" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>salary</label>
+      <input type="text"   name="emp_salary" ngModel   placeholder="Enter salary" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>city</label>
+      <input type="text"   name="emp_city" ngModel  laceholder="Enter city" class="form-control">
+    </div>
+
+    <button type="submit" class="form-control btn btn-primary">add emp</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+

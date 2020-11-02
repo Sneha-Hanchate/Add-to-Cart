@@ -1,0 +1,14 @@
+button{
+  margin: 20px;
+  font-size: large;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: rgb(36, 230, 10);
+  box-shadow: 2px 2px 4px #000000;
+  /* color: white; */
+}
+
+input{
+  background-color: tomato;
+  padding: 2%;
+}

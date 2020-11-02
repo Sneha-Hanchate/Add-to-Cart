@@ -1,0 +1,249 @@
+.html
+<head>
+  <link rel="stylesheet" href="todos.component.css">
+</head>
+<body class="body">
+
+<!-- Todo Component-->
+<!--<div>
+    <h2>Todo Component</h2>
+  <div class="center">
+    <h3>Add Todo Records:</h3>
+    <input type="number" [(ngModel)]="id" class="form-control" placeholder="Enter Id"><br><br>
+    <input type="text"  [(ngModel)]="title" class="form-control" placeholder="Enter Title"><br><br>
+    <input type="text"  [(ngModel)]="status" class="form-control" placeholder="Enter Status"><br><br>
+    <button class="button" (click)="onAddTodoTask()">Add</button>
+  </div>
+<br>-->
+<div class="div">Novodhi Solution Training Demo</div>
+<br>
+<br><br>
+<table class="tab">
+  <button (click)="onShowTodoClick()" class="button" style="margin-top: 5px" >show Todo</button>
+  <ul *ngIf="flag">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let item of arrayTodo">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <!--<td *ngIf="item.status=='pending'"><span style="color: red;"> {{item.status}} </span></td>
+    <td *ngIf="item.status=='done'"><span style="color: green;"> {{item.status}} </span></td> -->
+    <td> <span [ngClass]="{done: item.status=='done','pending': item.status=='pending'}"> {{item.status}} </span></td>
+    <td>
+      <button class="buttonc" (click)="onDeleteTask(item)">Delete</button>
+      <button class ="token" (click)="onEditTask(item)">Edit</button>
+    </td>
+  </tr>
+</ul>
+<br>
+<br>
+
+<!--</div>
+<br
+<hr>>-->
+
+<!--  Employee Component-->
+
+<!--<div>
+  <div>
+<h2>Employee Component</h2>-->
+<!--<div class="center">
+<h3>Add Employee Records:</h3>
+<input type="number" [(ngModel)]="empId"  class="form-control" placeholder="Enter Id"><br><br>
+<input type="text"   [(ngModel)]="empName"   class="form-control" placeholder="Enter Name"><br><br>
+<input type="number" [(ngModel)]="empSalary"  class="form-control" placeholder="Enter Salary"><br><br>
+<button class="button" (click)="onAddEmployeeTask()">Add</button>
+</div>
+<br>-->
+
+
+  <button (click)="onShowEmployeeClick()" class="element" style="margin: 5px;">Show Employee</button>
+  <ul *ngIf="flag1">
+  <thead>
+    <tr>
+      <th>EmpId</th>
+      <th>EmpName</th>
+      <th>EmpSalary</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let item of arrayEmployee">
+    <td>{{item.empId}}</td>
+    <td>{{item.empName}}</td>
+    <td>{{item.empSalary}}</td>
+    <td>
+      <button class="buttonc" (click)="onDeleteEmployeeTask(item)">Delete</button>
+      <button class ="token" (click)="onEditEmployeeTask(item)">Edit</button>
+    </td>
+  </tr>
+</ul>
+</table>
+</body>
+<div class="tab">
+<input type="number" [(ngModel)]="num">
+<button (click)="onClickMultiple()">Generate</button>
+<div *ngFor="let item of arrayNumber; let i=index">
+  {{num}}*{{i+1}}={{item}}
+</div>
+<div>
+<!--<</div>
+br>
+<hr>-->
+
+<!--Product Component-->
+<!--
+<div>
+  <h2>Product Component</h2>
+  <div class="center">
+      <h3>Add Product Records:</h3>
+  <input type="number" [(ngModel)]="pId"  class="form-control" placeholder="Enter Id"><br><br>
+  <input type="text"   [(ngModel)]="pName"   class="form-control" placeholder="Enter Name"><br><br>
+  <input type="number" [(ngModel)]="pQty"  class="form-control" placeholder="Enter Qty"><br><br>
+  <button class="button" (click)="onAddProductTask()">Add</button>
+  </div>
+<br>
+<table >
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Qty</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let item of arrayProduct">
+    <td >{{item.id}}</td>
+    <td>{{item.Name}}</td>
+    <td>{{item.qty}}</td>
+    <td>
+      <button class="buttonc" (click)="onDeleteProductTask(item)">Delete</button>
+      <button class ="token" (click)="onEditProductTask(item)">Edit</button>
+    </td>
+  </tr>
+</table>
+</div>-->
+
+
+
+
+
+
+
+
+.ts
+import { Component, OnInit } from '@angular/core';
+import {Todo} from './todo';
+import { Employee } from './employee';
+import {Product} from './product';
+
+@Component({
+  selector: 'app-todos',
+  templateUrl: './todos.component.html',
+  styleUrls: ['./todos.component.css']
+})
+export class TodosComponent implements OnInit {
+// arrayName: string[] = ['Akschay', 'Chaugule'];
+arrayNumber: number[];
+num = 2;
+id;
+title;
+status;
+empId;
+empName;
+empSalary;
+pId;
+pName;
+pQty;
+flag = false;
+flag1 = false;
+no = 2;
+arrayTodo: Todo[] = [
+  new Todo (1, 'Hello', 'done'),
+  new Todo(2, 'Good Morning', 'pending'),
+  new Todo(3, 'Mail', 'pending'),
+  new Todo(4, 'Whatsap msg', 'pending')
+];
+arrayEmployee: Employee[] = [
+  new Employee(1, 'Ravi', 20000),
+  new Employee(2, 'Raj', 30000),
+  new Employee(3, 'Raghav', 10000),
+  new Employee(4, 'Vijay', 40000),
+  new Employee(5, 'Rajesh', 50000)
+];
+
+arrayProduct: Product[] = [
+  new Product(1, 'Mobile' , 10),
+  new Product(2, 'Battery' , 5),
+  new Product(3, 'Charger' , 10),
+  new Product(4, 'Earphones' , 15),
+];
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+  onDeleteTask(item: Todo): void {
+    this.arrayTodo.splice(this.arrayTodo.indexOf(item), 1);
+  }
+
+  onEditTask(item: Todo): void {
+    if (item.status === 'done'){
+      item.status = 'pending';
+    } else{
+      item.status = 'done';
+    }
+  }
+
+  onAddTodoTask(): void {
+    this.arrayTodo.push(new Todo(this.id, this.title, this.status));
+  }
+  onAddEmployeeTask(): void {
+   this.arrayEmployee.push(new Employee(this.empId, this.empName, this.empSalary));
+ }
+
+ onDeleteEmployeeTask(item: Employee): void {
+  this.arrayEmployee.splice(this.arrayEmployee.indexOf(item), 1);
+}
+
+onEditEmployeeTask(item: Employee): void {
+  if (item.empSalary === 10000){
+    item.empSalary = 20000;
+  } else{
+    item.empSalary = 40000;
+  }
+}
+
+onAddProductTask(): void {
+  this.arrayProduct.push(new Product(this.pId, this.pName, this.pQty));
+}
+
+onDeleteProductTask(item: Product): void {
+ this.arrayProduct.splice(this.arrayProduct.indexOf(item), 1);
+}
+
+onEditProductTask(item: Product): void {
+ if (item.qty === 10){
+   item.qty = 20;
+ } else{
+   item.qty = 25;
+ }
+}
+onShowTodoClick(): void {
+  this.flag = !this.flag;
+}
+
+onShowEmployeeClick(): void {
+  this.flag1 = !this.flag1;
+}
+
+onClickMultiple(): void {
+  this.arrayNumber = [this.num * 1, this.num * 2, this.num * 3, this.num * 4, this.num * 5, this.num * 6
+     , this.num * 7, this.num * 8, this.num * 9, this.num * 10 ];
+
+}

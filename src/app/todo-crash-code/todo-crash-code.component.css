@@ -1,0 +1,14 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+input{
+  margin :1%;
+  background-color: rgb(180, 243, 212);
+  padding: 1%;
+
+}

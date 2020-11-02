@@ -1,0 +1,13 @@
+ button, label{
+  width: 50%;
+  /* align-items: center; */
+  margin-left: 20%;
+}
+
+input{
+  width: 50%;
+  /* align-items: center; */
+  margin-left: 20%;
+  background-color: turquoise;
+  border: 2px solid black;
+}

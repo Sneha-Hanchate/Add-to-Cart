@@ -1,0 +1,25 @@
+<h1>Demo</h1>
+<hr>
+<p>demo for sum, print values, working dynamic given value for sum</p>
+
+<h3> {{no1}}  -  {{str}}<h3>
+
+<br>
+<button (click)="onButtonClick()"> Click Me</button>
+
+<br>
+<input type="text" (keyup)="onKeyUp()">
+<br>
+<input type="text" value="{{str}}">
+
+<br>
+<input type="text" [value]="no1 "  [disabled]="flag">
+<br>
+
+<input type="number" [(ngModel)] ="a">
+<input type="number" [(ngModel)] ="b">
+
+<button (click)="add()"> ADD </button>
+<br>
+<h2>sum is= {{sum}}</h2>
+<hr>
